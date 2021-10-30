@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/user/{id}/article/{articleId}', function($id, $articleId){
+//     return 'user' . $id . 'Artikel' .$articleId;
+// });
+Route::get('/user/{id?}', function($id = null){
+    return 'user' . $id;
+});

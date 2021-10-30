@@ -14,10 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::get('/user/{id}/article/{articleId}', function($id, $articleId){
-//     return 'user' . $id . 'Artikel' .$articleId;
-// });
-Route::get('/user/{id?}', function($id = null){
-    return 'user' . $id;
+Route::prefix('account')->group(function() {
+    //definisikan route
+    Route::prefix('setting')->group(function() {
+        Route::get('/change-password', function() {
+            return 'change-password';
+        });
+        Route::get('/profile', function() {
+            return 'Profile';
+        });
+        Route::get('/photo', function() {
+            return 'Photo';
+        });
+    });
+    Route::get('follower', function() {
+        return 'follower';
+    });
 });
